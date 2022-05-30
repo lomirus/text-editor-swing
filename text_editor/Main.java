@@ -1,3 +1,5 @@
+package text_editor;
+
 import javax.swing.*;
 
 public class Main {
@@ -6,6 +8,9 @@ public class Main {
         JFrame frame = new JFrame("Text Editor");
         frame.setSize(640, 480);
         frame.setVisible(true);
+
+        TextArea textArea = new TextArea();
+        frame.add(textArea);
     }
 
     private static void initTheme() {
@@ -17,3 +22,4 @@ public class Main {
         }
     }
 }
+
