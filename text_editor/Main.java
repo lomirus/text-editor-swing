@@ -10,6 +10,7 @@ public class Main {
         frame.setVisible(true);
 
         TextArea textArea = new TextArea();
+        textArea.setLineWrap(true);
         frame.add(textArea);
 
         MenuBar menuBar = new MenuBar();
