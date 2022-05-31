@@ -9,11 +9,10 @@ public class App {
     public App() {
         initTheme();
         this.frame = new JFrame("Text Editor");
-        frame.setSize(640, 480);
+        this.frame.setSize(640, 480);
 
         this.textArea = new TextArea();
-        textArea.setLineWrap(true);
-        frame.add(textArea);
+        frame.add(this.textArea);
 
         MenuBar menuBar = new MenuBar(this);
         frame.setJMenuBar(menuBar);
