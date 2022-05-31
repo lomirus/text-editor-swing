@@ -2,16 +2,20 @@ package text_editor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 public class MenuBar extends JMenuBar {
-    public MenuBar() {
+    public MenuBar(App parent) {
         JMenu file = new JMenu("文件");
 
         JMenuItem newFile = new JMenuItem();
@@ -41,7 +45,17 @@ public class MenuBar extends JMenuBar {
         AbstractAction openAction = new AbstractAction("打开") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("打开");
+                final String cwd = System.getProperty("user.dir");
+                final JFileChooser fileChooser = new JFileChooser(cwd);
+                fileChooser.showOpenDialog(parent.frame);
+                final File file = fileChooser.getSelectedFile();
+                
+                try {
+                    String content = new String(Files.readAllBytes(file.toPath()));
+                    parent.setContent(content);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         };
         openAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_DOWN_MASK));
@@ -282,7 +296,7 @@ public class MenuBar extends JMenuBar {
         format.add(font);
 
         JMenu view = new JMenu("查看");
-        
+
         JMenu scale = new JMenu("缩放");
         view.add(scale);
 
@@ -293,7 +307,8 @@ public class MenuBar extends JMenuBar {
                 System.out.println("放大");
             }
         };
-        scaleUpAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_PLUS, KeyEvent.CTRL_DOWN_MASK));
+        scaleUpAction.putValue(Action.ACCELERATOR_KEY,
+                KeyStroke.getKeyStroke(KeyEvent.VK_PLUS, KeyEvent.CTRL_DOWN_MASK));
         scaleUp.setAction(scaleUpAction);
         scale.add(scaleUp);
 
@@ -304,7 +319,8 @@ public class MenuBar extends JMenuBar {
                 System.out.println("缩小");
             }
         };
-        scaleDownAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_MINUS, KeyEvent.CTRL_DOWN_MASK));
+        scaleDownAction.putValue(Action.ACCELERATOR_KEY,
+                KeyStroke.getKeyStroke(KeyEvent.VK_MINUS, KeyEvent.CTRL_DOWN_MASK));
         scaleDown.setAction(scaleDownAction);
         scale.add(scaleDown);
 
@@ -315,7 +331,8 @@ public class MenuBar extends JMenuBar {
                 System.out.println("恢复默认缩放");
             }
         };
-        resetDefaultScaleAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_0, KeyEvent.CTRL_DOWN_MASK));
+        resetDefaultScaleAction.putValue(Action.ACCELERATOR_KEY,
+                KeyStroke.getKeyStroke(KeyEvent.VK_0, KeyEvent.CTRL_DOWN_MASK));
         resetDefaultScale.setAction(resetDefaultScaleAction);
         scale.add(resetDefaultScale);
 
