@@ -1,4 +1,4 @@
-package indi.text_editor;
+package indi.lmr_zhy.text_editor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

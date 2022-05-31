@@ -1,4 +1,4 @@
-package indi.text_editor;
+package indi.lmr_zhy.text_editor;
 
 public class Main {
     public static void main(String[] args) {
