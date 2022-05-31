@@ -11,6 +11,9 @@ public class Main {
 
         TextArea textArea = new TextArea();
         frame.add(textArea);
+
+        MenuBar menuBar = new MenuBar();
+        frame.setJMenuBar(menuBar);
     }
 
     private static void initTheme() {
