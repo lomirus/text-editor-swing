@@ -1,4 +1,4 @@
-package text_editor;
+package indi.text_editor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;

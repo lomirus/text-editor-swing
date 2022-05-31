@@ -1,4 +1,4 @@
-package text_editor;
+package indi.text_editor;
 
 public class Main {
     public static void main(String[] args) {
