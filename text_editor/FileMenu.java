@@ -45,14 +45,16 @@ public class FileMenu extends JMenu {
             public void actionPerformed(ActionEvent arg0) {
                 final String cwd = System.getProperty("user.dir");
                 final JFileChooser fileChooser = new JFileChooser(cwd);
-                fileChooser.showOpenDialog(app.frame);
+                final int res = fileChooser.showOpenDialog(app.frame);
+                if (res == JFileChooser.CANCEL_OPTION) {
+                    return;
+                }
                 final File file = fileChooser.getSelectedFile();
-                
                 try {
                     String content = new String(Files.readAllBytes(file.toPath()));
                     app.setContent(content);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.print(e.getMessage());
                 }
             }
         };
