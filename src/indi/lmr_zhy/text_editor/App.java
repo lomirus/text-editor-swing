@@ -1,10 +1,13 @@
 package indi.lmr_zhy.text_editor;
 
+import java.nio.file.Path;
+
 import javax.swing.*;
 
 public class App {
     JFrame frame;
     private TextArea textArea;
+    public Path filePath;
 
     public App() {
         initTheme();

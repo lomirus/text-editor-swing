@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -51,7 +52,9 @@ public class FileMenu extends JMenu {
                 }
                 final File file = fileChooser.getSelectedFile();
                 try {
-                    String content = new String(Files.readAllBytes(file.toPath()));
+                    Path filePath = file.toPath();
+                    app.filePath = filePath;
+                    String content = new String(Files.readAllBytes(filePath));
                     app.setContent(content);
                 } catch (IOException e) {
                     System.out.print(e.getMessage());
@@ -66,7 +69,28 @@ public class FileMenu extends JMenu {
         AbstractAction saveAction = new AbstractAction("保存") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("保存");
+                if (app.filePath == null) {
+                    final String cwd = System.getProperty("user.dir");
+                    final JFileChooser fileChooser = new JFileChooser(cwd);
+                    final int res = fileChooser.showOpenDialog(app.frame);
+                    if (res == JFileChooser.CANCEL_OPTION) {
+                        return;
+                    }
+                    final File file = fileChooser.getSelectedFile();
+                    try {
+                        Path filePath = file.toPath();
+                        app.filePath = filePath;
+                        Files.writeString(filePath, app.getContent());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        Files.write(app.filePath, app.getContent().getBytes());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         };
         saveAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, KeyEvent.CTRL_DOWN_MASK));
@@ -77,7 +101,19 @@ public class FileMenu extends JMenu {
         AbstractAction saveAsAction = new AbstractAction("另存为") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("另存为");
+                final String cwd = System.getProperty("user.dir");
+                final JFileChooser fileChooser = new JFileChooser(cwd);
+                final int res = fileChooser.showOpenDialog(app.frame);
+                if (res == JFileChooser.CANCEL_OPTION) {
+                    return;
+                }
+                final File file = fileChooser.getSelectedFile();
+                try {
+                    Path filePath = file.toPath();
+                    Files.writeString(filePath, app.getContent());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         };
         saveAsAction.putValue(Action.ACCELERATOR_KEY,
