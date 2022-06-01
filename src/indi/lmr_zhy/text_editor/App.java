@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import javax.swing.*;
 
 public class App {
-    JFrame frame;
+    public JFrame frame;
     private TextArea textArea;
     public Path filePath;
 

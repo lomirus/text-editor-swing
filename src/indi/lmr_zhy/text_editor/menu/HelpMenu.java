@@ -1,10 +1,12 @@
-package indi.lmr_zhy.text_editor;
+package indi.lmr_zhy.text_editor.menu;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
+import indi.lmr_zhy.text_editor.App;
 
 public class HelpMenu extends JMenu {
     public HelpMenu(App app) {

@@ -1,4 +1,4 @@
-package indi.lmr_zhy.text_editor;
+package indi.lmr_zhy.text_editor.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -13,6 +13,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+
+import indi.lmr_zhy.text_editor.App;
 
 public class FileMenu extends JMenu {
     public FileMenu(App app) {

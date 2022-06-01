@@ -3,6 +3,12 @@ package indi.lmr_zhy.text_editor;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
+import indi.lmr_zhy.text_editor.menu.EditMenu;
+import indi.lmr_zhy.text_editor.menu.FileMenu;
+import indi.lmr_zhy.text_editor.menu.FormatMenu;
+import indi.lmr_zhy.text_editor.menu.HelpMenu;
+import indi.lmr_zhy.text_editor.menu.ViewMenu;
+
 public class MenuBar extends JMenuBar {
     public MenuBar(App app) {
         JMenu file = new FileMenu(app);        

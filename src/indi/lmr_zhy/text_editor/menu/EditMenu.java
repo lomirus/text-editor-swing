@@ -1,4 +1,4 @@
-package indi.lmr_zhy.text_editor;
+package indi.lmr_zhy.text_editor.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -8,6 +8,8 @@ import javax.swing.Action;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+
+import indi.lmr_zhy.text_editor.App;
 
 public class EditMenu extends JMenu {
     public EditMenu(App app) {
