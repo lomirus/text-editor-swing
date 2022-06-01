@@ -8,10 +8,11 @@ public class App {
     JFrame frame;
     private TextArea textArea;
     public Path filePath;
+    private String fileTitle;
 
     public App() {
         initTheme();
-        this.frame = new JFrame("Text Editor");
+        this.frame = new JFrame("新建文本文档 - 记事本");
         this.frame.setSize(640, 480);
 
         this.textArea = new TextArea();
@@ -27,6 +28,11 @@ public class App {
 
     public void setContent(String newContent) {
         this.textArea.setText(newContent);
+    }
+
+    public void setTitle(String newTitle) {
+        this.fileTitle = newTitle;
+        this.frame.setTitle(newTitle + '-' + "记事本");
     }
 
     public void run() {

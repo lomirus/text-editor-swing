@@ -21,7 +21,7 @@ public class FileMenu extends JMenu {
         AbstractAction newFileAction = new AbstractAction("新建") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("新建");
+                app.setTitle("无标题");
             }
         };
         newFileAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK));
@@ -54,6 +54,7 @@ public class FileMenu extends JMenu {
                 try {
                     Path filePath = file.toPath();
                     app.filePath = filePath;
+                    app.setTitle(file.getName());
                     String content = new String(Files.readAllBytes(filePath));
                     app.setContent(content);
                 } catch (IOException e) {
