@@ -8,7 +8,6 @@ public class App {
     JFrame frame;
     private TextArea textArea;
     public Path filePath;
-    private String fileTitle;
 
     public App() {
         initTheme();
@@ -31,7 +30,6 @@ public class App {
     }
 
     public void setTitle(String newTitle) {
-        this.fileTitle = newTitle;
         this.frame.setTitle(newTitle + '-' + "记事本");
     }
 
