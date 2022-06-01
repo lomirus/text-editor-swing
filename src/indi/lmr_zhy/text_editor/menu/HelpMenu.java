@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import indi.lmr_zhy.text_editor.App;
 
@@ -15,7 +16,7 @@ public class HelpMenu extends JMenu {
         AbstractAction getHelpAction = new AbstractAction("查看帮助") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("查看帮助");
+                JOptionPane.showMessageDialog(null, "查看帮助");
             }
         };
         getHelp.setAction(getHelpAction);
@@ -25,7 +26,7 @@ public class HelpMenu extends JMenu {
         AbstractAction feedbackAction = new AbstractAction("发送反馈") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("发送反馈");
+                JOptionPane.showMessageDialog(null, "发送反馈");
             }
         };
         feedback.setAction(feedbackAction);
@@ -35,7 +36,7 @@ public class HelpMenu extends JMenu {
         AbstractAction aboutAction = new AbstractAction("关于记事本") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("关于记事本");
+                JOptionPane.showMessageDialog(null, "关于记事本");
             }
         };
         about.setAction(aboutAction);

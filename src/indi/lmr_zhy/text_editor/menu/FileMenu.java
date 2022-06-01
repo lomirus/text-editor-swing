@@ -12,6 +12,7 @@ import javax.swing.Action;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import indi.lmr_zhy.text_editor.App;
@@ -34,7 +35,7 @@ public class FileMenu extends JMenu {
         AbstractAction newWindowAction = new AbstractAction("新窗口") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("新窗口");
+                JOptionPane.showMessageDialog(null, "新窗口");
             }
         };
         newWindowAction.putValue(Action.ACCELERATOR_KEY,
@@ -130,7 +131,7 @@ public class FileMenu extends JMenu {
         AbstractAction pageConfigAction = new AbstractAction("页面设置") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("页面设置");
+                JOptionPane.showMessageDialog(null, "页面设置");
             }
         };
         pageConfig.setAction(pageConfigAction);
@@ -140,7 +141,7 @@ public class FileMenu extends JMenu {
         AbstractAction printAction = new AbstractAction("打印") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("打印");
+                JOptionPane.showMessageDialog(null, "打印");
             }
         };
         printAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_DOWN_MASK));
@@ -153,7 +154,7 @@ public class FileMenu extends JMenu {
         AbstractAction exitAction = new AbstractAction("退出") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("退出");
+                JOptionPane.showMessageDialog(null, "退出");
             }
         };
         exit.setAction(exitAction);

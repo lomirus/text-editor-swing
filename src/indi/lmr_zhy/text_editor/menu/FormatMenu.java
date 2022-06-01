@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import indi.lmr_zhy.text_editor.App;
 
@@ -15,7 +16,7 @@ public class FormatMenu extends JMenu {
         AbstractAction wrapAction = new AbstractAction("自动换行") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("自动换行");
+                JOptionPane.showMessageDialog(null, "自动换行");
             }
         };
         wrap.setAction(wrapAction);
@@ -25,7 +26,7 @@ public class FormatMenu extends JMenu {
         AbstractAction fontAction = new AbstractAction("字体") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("字体");
+                JOptionPane.showMessageDialog(null, "字体");
             }
         };
         font.setAction(fontAction);

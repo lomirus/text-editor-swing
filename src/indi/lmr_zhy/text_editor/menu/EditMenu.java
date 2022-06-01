@@ -7,6 +7,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import indi.lmr_zhy.text_editor.App;
@@ -18,7 +19,7 @@ public class EditMenu extends JMenu {
         AbstractAction undoAction = new AbstractAction("撤销") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("撤销");
+                JOptionPane.showMessageDialog(null, "撤销");
             }
         };
         undoAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK));
@@ -31,7 +32,7 @@ public class EditMenu extends JMenu {
         AbstractAction cutAction = new AbstractAction("剪切") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("剪切");
+                JOptionPane.showMessageDialog(null, "剪切");
             }
         };
         cutAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_X, KeyEvent.CTRL_DOWN_MASK));
@@ -42,7 +43,7 @@ public class EditMenu extends JMenu {
         AbstractAction copyAction = new AbstractAction("复制") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("复制");
+                JOptionPane.showMessageDialog(null, "复制");
             }
         };
         copyAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
@@ -53,7 +54,7 @@ public class EditMenu extends JMenu {
         AbstractAction pasteAction = new AbstractAction("粘贴") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("粘贴");
+                JOptionPane.showMessageDialog(null, "粘贴");
             }
         };
         pasteAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_V, KeyEvent.CTRL_DOWN_MASK));
@@ -64,7 +65,7 @@ public class EditMenu extends JMenu {
         AbstractAction deleteAction = new AbstractAction("删除") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("删除");
+                JOptionPane.showMessageDialog(null, "删除");
             }
         };
         deleteAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
@@ -77,7 +78,7 @@ public class EditMenu extends JMenu {
         AbstractAction searchAction = new AbstractAction("使用 Bing 搜索") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("使用 Bing 搜索");
+                JOptionPane.showMessageDialog(null, "使用 Bing 搜索");
             }
         };
         searchAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_DOWN_MASK));
@@ -88,7 +89,7 @@ public class EditMenu extends JMenu {
         AbstractAction findAction = new AbstractAction("查找") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("查找");
+                JOptionPane.showMessageDialog(null, "查找");
             }
         };
         findAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK));
@@ -99,7 +100,7 @@ public class EditMenu extends JMenu {
         AbstractAction findNextAction = new AbstractAction("查找下一个") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("查找下一个");
+                JOptionPane.showMessageDialog(null, "查找下一个");
             }
         };
         findNextAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F3, 0));
@@ -110,7 +111,7 @@ public class EditMenu extends JMenu {
         AbstractAction findPreviousAction = new AbstractAction("查找上一个") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("查找上一个");
+                JOptionPane.showMessageDialog(null, "查找上一个");
             }
         };
         findPreviousAction.putValue(Action.ACCELERATOR_KEY,
@@ -122,7 +123,7 @@ public class EditMenu extends JMenu {
         AbstractAction replaceAction = new AbstractAction("替换") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("替换");
+                JOptionPane.showMessageDialog(null, "替换");
             }
         };
         replaceAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_DOWN_MASK));
@@ -133,7 +134,7 @@ public class EditMenu extends JMenu {
         AbstractAction forwardAction = new AbstractAction("转到") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("转到");
+                JOptionPane.showMessageDialog(null, "转到");
             }
         };
         forwardAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_G, KeyEvent.CTRL_DOWN_MASK));
@@ -146,7 +147,7 @@ public class EditMenu extends JMenu {
         AbstractAction selectAllAction = new AbstractAction("全选") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("全选");
+                JOptionPane.showMessageDialog(null, "全选");
             }
         };
         selectAllAction.putValue(Action.ACCELERATOR_KEY,
@@ -158,7 +159,7 @@ public class EditMenu extends JMenu {
         AbstractAction timeOrDateAction = new AbstractAction("时间/日期") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("时间/日期");
+                JOptionPane.showMessageDialog(null, "时间/日期");
             }
         };
         timeOrDateAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0));
