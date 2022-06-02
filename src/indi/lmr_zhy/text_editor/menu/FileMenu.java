@@ -154,7 +154,7 @@ public class FileMenu extends JMenu {
         AbstractAction exitAction = new AbstractAction("退出") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "退出");
+                System.exit(0);
             }
         };
         exit.setAction(exitAction);
