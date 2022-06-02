@@ -35,7 +35,7 @@ public class FileMenu extends JMenu {
         AbstractAction newWindowAction = new AbstractAction("新窗口") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "新窗口");
+                new App().run();
             }
         };
         newWindowAction.putValue(Action.ACCELERATOR_KEY,
