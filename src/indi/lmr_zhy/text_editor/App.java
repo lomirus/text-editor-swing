@@ -14,6 +14,7 @@ public class App {
         initTheme();
         this.frame = new JFrame("新建文本文档 - 记事本");
         this.frame.setSize(640, 480);
+        frame.setLocationRelativeTo(null);
 
         this.textArea = new TextArea();
         frame.add(this.textArea);
