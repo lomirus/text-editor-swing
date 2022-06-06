@@ -3,6 +3,7 @@ package indi.lmr_zhy.text_editor;
 import java.nio.file.Path;
 
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
 
 public class App {
     public JFrame frame;
@@ -42,6 +43,14 @@ public class App {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                 | UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setHightLight(int start, int end) {
+        try {
+            this.textArea.setHightLight(start, end);
+        } catch (BadLocationException e) {
             e.printStackTrace();
         }
     }

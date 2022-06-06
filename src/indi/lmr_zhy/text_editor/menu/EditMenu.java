@@ -147,7 +147,8 @@ public class EditMenu extends JMenu {
         AbstractAction selectAllAction = new AbstractAction("全选") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "全选");
+                int length = app.getContent().length();
+                app.setHightLight(0, length);
             }
         };
         selectAllAction.putValue(Action.ACCELERATOR_KEY,
