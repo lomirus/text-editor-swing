@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.Border;
 
 import indi.lmr_zhy.text_editor.App;
@@ -101,50 +103,51 @@ public class EditMenu extends JMenu {
             public void actionPerformed(ActionEvent arg0) {
                 JDialog searchDialog = new JDialog();
                 searchDialog.setLocationRelativeTo(null);
-                // searchDialog.setResizable(false);
+                searchDialog.setResizable(false);
                 searchDialog.setTitle("查找");
                 searchDialog.setPreferredSize(new Dimension(551, 224));
                 searchDialog.setVisible(true);
                 searchDialog.setLayout(null);
 
-                JLabel label = new JLabel("查找内容：");
-                label.setBounds(0, 0, 289, 27);
-                searchDialog.add(label);
+                JLabel searchLabel = new JLabel("查找内容：");
+                searchLabel.setBounds(9, 25, 289, 27);
+                searchDialog.add(searchLabel);
 
-                JTextArea input = new JTextArea();
-                input.setBounds(100, 0, 289, 27);
-                searchDialog.add(input);
+                JTextArea searchInput = new JTextArea();
+                searchInput.setBounds(107, 18, 289, 30);
+                searchInput.setAlignmentY(0.5f);
+                searchDialog.add(searchInput);
 
                 Border directionBorder = BorderFactory.createTitledBorder("方向");
 
                 JPanel direction = new JPanel();
-                direction.setBounds(100, 100, 200, 200);
+                direction.setBounds(239, 75, 182, 59);
                 direction.setLayout(null);
                 direction.setBorder(directionBorder);
                 searchDialog.add(direction);
-                
+
                 JRadioButton up = new JRadioButton("向上");
-                up.setBounds(0, 0, 100, 50);
+                up.setBounds(5, 13, 100, 50);
                 direction.add(up);
 
                 JRadioButton down = new JRadioButton("向下");
-                down.setBounds(100, 0, 100, 50);
+                down.setBounds(95, 13, 100, 50);
                 direction.add(down);
 
                 JCheckBox matchCase = new JCheckBox("区分大小写");
-                matchCase.setBounds(0, 100, 110, 27);
+                matchCase.setBounds(9, 110, 110, 27);
                 searchDialog.add(matchCase);
 
                 JCheckBox loop = new JCheckBox("循环");
-                loop.setBounds(0, 150, 110, 27);
+                loop.setBounds(9, 150, 110, 27);
                 searchDialog.add(loop);
 
                 JButton findNext = new JButton("查找下一个");
-                findNext.setBounds(360, 50, 110, 27);
+                findNext.setBounds(429, 14, 110, 27);
                 searchDialog.add(findNext);
 
                 JButton cancel = new JButton("取消");
-                cancel.setBounds(360, 100, 110, 27);
+                cancel.setBounds(429, 59, 110, 27);
                 searchDialog.add(cancel);
 
                 searchDialog.pack();
@@ -181,7 +184,73 @@ public class EditMenu extends JMenu {
         AbstractAction replaceAction = new AbstractAction("替换") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "替换");
+                JDialog searchDialog = new JDialog();
+                searchDialog.setLocationRelativeTo(null);
+                searchDialog.setResizable(false);
+                searchDialog.setTitle("替换");
+                searchDialog.setPreferredSize(new Dimension(551, 314));
+                searchDialog.setVisible(true);
+                searchDialog.setLayout(null);
+
+                JLabel label = new JLabel("查找内容：");
+                label.setBounds(9, 25, 289, 27);
+                searchDialog.add(label);
+
+                JTextArea input = new JTextArea();
+                input.setBounds(107, 18, 289, 30);
+                input.setAlignmentY(0.5f);
+                searchDialog.add(input);
+
+                JLabel repalceLabel = new JLabel("替换为：");
+                repalceLabel.setBounds(9, 65, 289, 27);
+                searchDialog.add(repalceLabel);
+
+                JTextArea replaceInput = new JTextArea();
+                replaceInput.setBounds(107, 58, 289, 30);
+                replaceInput.setAlignmentY(0.5f);
+                searchDialog.add(replaceInput);
+
+                Border directionBorder = BorderFactory.createTitledBorder("方向");
+
+                JPanel direction = new JPanel();
+                direction.setBounds(239, 165, 182, 59);
+                direction.setLayout(null);
+                direction.setBorder(directionBorder);
+                searchDialog.add(direction);
+
+                JRadioButton up = new JRadioButton("向上");
+                up.setBounds(5, 13, 100, 50);
+                direction.add(up);
+
+                JRadioButton down = new JRadioButton("向下");
+                down.setBounds(95, 13, 100, 50);
+                direction.add(down);
+
+                JCheckBox matchCase = new JCheckBox("区分大小写");
+                matchCase.setBounds(9, 200, 110, 27);
+                searchDialog.add(matchCase);
+
+                JCheckBox loop = new JCheckBox("循环");
+                loop.setBounds(9, 240, 110, 27);
+                searchDialog.add(loop);
+
+                JButton findNext = new JButton("查找下一个");
+                findNext.setBounds(429, 14, 110, 27);
+                searchDialog.add(findNext);
+
+                JButton replace = new JButton("替换");
+                replace.setBounds(429, 59, 110, 27);
+                searchDialog.add(replace);
+
+                JButton repalceAll = new JButton("全部替换");
+                repalceAll.setBounds(429, 104, 110, 27);
+                searchDialog.add(repalceAll);
+
+                JButton cancel = new JButton("取消");
+                cancel.setBounds(429, 149, 110, 27);
+                searchDialog.add(cancel);
+
+                searchDialog.pack();
             }
         };
         replaceAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_DOWN_MASK));
