@@ -6,6 +6,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
+import javax.swing.text.Highlighter.Highlight;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -40,5 +42,9 @@ public class TextArea extends JScrollPane {
     public void setHightLight(int start, int end) throws BadLocationException {
         this.highlighter.removeAllHighlights();
         this.highlighter.addHighlight(start, end, DefaultHighlighter.DefaultPainter);
+    }
+
+    public Highlight[] getHightLights() {
+        return this.highlighter.getHighlights();
     }
 }

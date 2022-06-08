@@ -4,6 +4,7 @@ import java.nio.file.Path;
 
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.Highlighter.Highlight;
 
 public class App {
     public JFrame frame;
@@ -54,6 +55,10 @@ public class App {
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+    }
+
+    public Highlight[] getHightLights() {
+        return this.textArea.getHightLights();
     }
 }
 
