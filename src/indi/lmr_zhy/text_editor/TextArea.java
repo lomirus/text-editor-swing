@@ -12,13 +12,14 @@ import java.awt.event.MouseEvent;
 public class TextArea extends JScrollPane {
     private JTextArea textArea;
     private Highlighter highlighter;
+
     public TextArea() {
         this.textArea = new JTextArea();
         textArea.setEditable(true);
         textArea.setLineWrap(true);
-        textArea.addMouseListener(new MouseAdapter(){
+        textArea.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e){
+            public void mouseClicked(MouseEvent e) {
                 textArea.getHighlighter().removeAllHighlights();
             }
         });
