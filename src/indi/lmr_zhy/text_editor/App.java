@@ -3,12 +3,10 @@ package indi.lmr_zhy.text_editor;
 import java.nio.file.Path;
 
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Highlighter.Highlight;
 
 public class App {
     public JFrame frame;
-    private TextArea textArea;
+    public TextArea textArea;
     public Path filePath;
 
     public App() {
@@ -22,14 +20,6 @@ public class App {
 
         MenuBar menuBar = new MenuBar(this);
         frame.setJMenuBar(menuBar);
-    }
-
-    public String getContent() {
-        return this.textArea.getText();
-    }
-
-    public void setContent(String newContent) {
-        this.textArea.setText(newContent);
     }
 
     public void setTitle(String newTitle) {
@@ -48,17 +38,4 @@ public class App {
             e.printStackTrace();
         }
     }
-
-    public void setHightLight(int start, int end) {
-        try {
-            this.textArea.setHightLight(start, end);
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Highlight[] getHightLights() {
-        return this.textArea.getHightLights();
-    }
 }
-

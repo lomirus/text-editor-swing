@@ -59,7 +59,7 @@ public class FileMenu extends JMenu {
                     app.filePath = filePath;
                     app.setTitle(file.getName());
                     String content = new String(Files.readAllBytes(filePath));
-                    app.setContent(content);
+                    app.textArea.setText(content);
                 } catch (IOException e) {
                     System.out.print(e.getMessage());
                 }
@@ -84,13 +84,13 @@ public class FileMenu extends JMenu {
                     try {
                         Path filePath = file.toPath();
                         app.filePath = filePath;
-                        Files.writeString(filePath, app.getContent());
+                        Files.writeString(filePath, app.textArea.getText());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } else {
                     try {
-                        Files.write(app.filePath, app.getContent().getBytes());
+                        Files.write(app.filePath, app.textArea.getText().getBytes());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -114,7 +114,7 @@ public class FileMenu extends JMenu {
                 final File file = fileChooser.getSelectedFile();
                 try {
                     Path filePath = file.toPath();
-                    Files.writeString(filePath, app.getContent());
+                    Files.writeString(filePath, app.textArea.getText());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
