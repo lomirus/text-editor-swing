@@ -19,8 +19,10 @@ import javax.swing.border.Border;
 import indi.lmr_zhy.text_editor.App;
 
 public class ReplaceDialog extends AbstractAction {
+    App app;
     public ReplaceDialog(App app) {
         super("替换");
+        this.app = app;
     }
 
     @Override
@@ -33,14 +35,14 @@ public class ReplaceDialog extends AbstractAction {
         replaceDialog.setVisible(true);
         replaceDialog.setLayout(null);
 
-        JLabel label = new JLabel("查找内容：");
-        label.setBounds(9, 25, 289, 27);
-        replaceDialog.add(label);
+        JLabel searchLabel = new JLabel("查找内容：");
+        searchLabel.setBounds(9, 25, 289, 27);
+        replaceDialog.add(searchLabel);
 
-        JTextArea input = new JTextArea();
-        input.setBounds(107, 18, 289, 30);
-        input.setAlignmentY(0.5f);
-        replaceDialog.add(input);
+        JTextArea searchInput = new JTextArea();
+        searchInput.setBounds(107, 18, 289, 30);
+        searchInput.setAlignmentY(0.5f);
+        replaceDialog.add(searchInput);
 
         JLabel repalceLabel = new JLabel("替换为：");
         repalceLabel.setBounds(9, 65, 289, 27);
@@ -81,6 +83,16 @@ public class ReplaceDialog extends AbstractAction {
 
         JButton findNext = new JButton("查找下一个");
         findNext.setBounds(429, 14, 110, 27);
+        findNext.setAction(new AbstractAction("查找下一个") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                if (down.isSelected()) {
+                    app.textArea.findNext(searchInput.getText());
+                } else {
+                    app.textArea.findPrevious(searchInput.getText());
+                }
+            }
+        });
         replaceDialog.add(findNext);
 
         JButton replace = new JButton("替换");

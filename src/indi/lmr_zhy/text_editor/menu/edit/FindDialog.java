@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -20,8 +19,10 @@ import javax.swing.border.Border;
 import indi.lmr_zhy.text_editor.App;
 
 public class FindDialog extends AbstractAction {
+    App app;
     public FindDialog(App app) {
         super("查找");
+        this.app = app;
     }
 
     @Override
@@ -76,7 +77,11 @@ public class FindDialog extends AbstractAction {
         findNext.setAction(new AbstractAction("查找下一个") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "查找下一个");
+                if (down.isSelected()) {
+                    app.textArea.findNext(searchInput.getText());
+                } else {
+                    app.textArea.findPrevious(searchInput.getText());
+                }
             }
         });
         searchDialog.add(findNext);

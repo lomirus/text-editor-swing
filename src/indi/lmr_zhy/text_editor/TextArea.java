@@ -51,4 +51,32 @@ public class TextArea extends JScrollPane {
     public Highlight[] getHightLights() {
         return this.highlighter.getHighlights();
     }
+
+    public void findNext(String text) {
+        int caret_pos = this.textArea.getCaretPosition();
+        int start = this.textArea.getText().indexOf(text, caret_pos);
+        if (start != -1) {
+            this.setHightLight(start, text.length() + start);
+            this.textArea.setCaretPosition(text.length() + start);
+        } else if (caret_pos != 0) {
+            this.textArea.setCaretPosition(0);
+            this.findNext(text);
+        }
+    }
+
+    public void findPrevious(String text) {
+        int caret_pos = this.textArea.getCaretPosition();
+        int start = this.textArea.getText().lastIndexOf(text, caret_pos);
+        if (start != -1) {
+            this.setHightLight(start, text.length() + start);
+            if (start == 0) {
+                this.textArea.setCaretPosition(this.textArea.getText().length());
+            } else {
+                this.textArea.setCaretPosition(start - 1);
+            }
+        } else if (caret_pos != this.textArea.getText().length()) {
+            this.textArea.setCaretPosition(this.textArea.getText().length());
+            this.findPrevious(text);
+        }
+    }
 }

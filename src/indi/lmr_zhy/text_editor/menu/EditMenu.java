@@ -97,7 +97,7 @@ public class EditMenu extends JMenu {
         AbstractAction findNextAction = new AbstractAction("查找下一个") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "查找下一个");
+                JOptionPane.showMessageDialog(null, "请在查找窗口或替换窗口内操作");
             }
         };
         findNextAction.putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_F3, 0));
@@ -108,7 +108,7 @@ public class EditMenu extends JMenu {
         AbstractAction findPreviousAction = new AbstractAction("查找上一个") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(null, "查找上一个");
+                JOptionPane.showMessageDialog(null, "请在查找窗口或替换窗口内操作");
             }
         };
         findPreviousAction.putValue(Action.ACCELERATOR_KEY,
