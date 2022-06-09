@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
@@ -123,14 +124,18 @@ public class EditMenu extends JMenu {
                 direction.setLayout(null);
                 direction.setBorder(directionBorder);
                 searchDialog.add(direction);
+                ButtonGroup directionGroup = new ButtonGroup();
 
                 JRadioButton up = new JRadioButton("向上");
                 up.setBounds(5, 13, 100, 50);
+                up.setSelected(true);
                 direction.add(up);
+                directionGroup.add(up);
 
                 JRadioButton down = new JRadioButton("向下");
                 down.setBounds(95, 13, 100, 50);
                 direction.add(down);
+                directionGroup.add(down);
 
                 JCheckBox matchCase = new JCheckBox("区分大小写");
                 matchCase.setBounds(9, 110, 110, 27);
@@ -215,14 +220,18 @@ public class EditMenu extends JMenu {
                 direction.setLayout(null);
                 direction.setBorder(directionBorder);
                 searchDialog.add(direction);
+                ButtonGroup directionGroup = new ButtonGroup();
 
                 JRadioButton up = new JRadioButton("向上");
                 up.setBounds(5, 13, 100, 50);
+                up.setSelected(true);
                 direction.add(up);
+                directionGroup.add(up);
 
                 JRadioButton down = new JRadioButton("向下");
                 down.setBounds(95, 13, 100, 50);
                 direction.add(down);
+                directionGroup.add(down);
 
                 JCheckBox matchCase = new JCheckBox("区分大小写");
                 matchCase.setBounds(9, 200, 110, 27);
