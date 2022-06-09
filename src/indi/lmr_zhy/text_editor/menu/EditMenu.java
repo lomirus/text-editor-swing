@@ -9,7 +9,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import javax.swing.text.BadLocationException;
 
 import indi.lmr_zhy.text_editor.App;
 import indi.lmr_zhy.text_editor.menu.edit.FindDialog;
@@ -141,11 +140,7 @@ public class EditMenu extends JMenu {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 int length = app.textArea.getText().length();
-                try {
-                    app.textArea.setHightLight(0, length);
-                } catch (BadLocationException e) {
-                    e.printStackTrace();
-                }
+                app.textArea.setHightLight(0, length);
             }
         };
         selectAllAction.putValue(Action.ACCELERATOR_KEY,

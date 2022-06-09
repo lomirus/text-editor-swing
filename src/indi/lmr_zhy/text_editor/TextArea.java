@@ -39,9 +39,13 @@ public class TextArea extends JScrollPane {
         this.textArea.setText(newText);
     }
 
-    public void setHightLight(int start, int end) throws BadLocationException {
+    public void setHightLight(int start, int end) {
         this.highlighter.removeAllHighlights();
-        this.highlighter.addHighlight(start, end, DefaultHighlighter.DefaultPainter);
+        try {
+            this.highlighter.addHighlight(start, end, DefaultHighlighter.DefaultPainter);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
     }
 
     public Highlight[] getHightLights() {
