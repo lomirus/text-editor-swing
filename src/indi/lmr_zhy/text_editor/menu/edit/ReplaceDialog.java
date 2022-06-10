@@ -97,6 +97,16 @@ public class ReplaceDialog extends AbstractAction {
 
         JButton replace = new JButton("替换");
         replace.setBounds(429, 59, 110, 27);
+        replace.setAction(new AbstractAction("替换") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                if (down.isSelected()) {
+                    app.textArea.replaceNext(searchInput.getText(), replaceInput.getText());
+                } else {
+                    app.textArea.replacePrevious(searchInput.getText(), replaceInput.getText());
+                }
+            }
+        });
         replaceDialog.add(replace);
 
         JButton repalceAll = new JButton("全部替换");

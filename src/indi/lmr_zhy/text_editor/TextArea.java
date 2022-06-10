@@ -79,4 +79,34 @@ public class TextArea extends JScrollPane {
             this.findPrevious(text);
         }
     }
+
+    public void replaceNext(String from, String to) {
+        int caret_pos = this.textArea.getCaretPosition();
+        int start = this.textArea.getText().indexOf(from, caret_pos);
+        if (start != -1) {
+            this.setHightLight(start, from.length() + start);
+            this.textArea.setCaretPosition(from.length() + start);
+            this.textArea.replaceRange(to, start, from.length() + start);
+        } else if (caret_pos != 0) {
+            this.textArea.setCaretPosition(0);
+            this.replaceNext(from, to);
+        }
+    }
+
+    public void replacePrevious(String from, String to) {
+        int caret_pos = this.textArea.getCaretPosition();
+        int start = this.textArea.getText().lastIndexOf(from, caret_pos);
+        if (start != -1) {
+            this.setHightLight(start, from.length() + start);
+            this.textArea.replaceRange(to, start, from.length() + start);
+            if (start == 0) {
+                this.textArea.setCaretPosition(this.textArea.getText().length());
+            } else {
+                this.textArea.setCaretPosition(start - 1);
+            }
+        } else if (caret_pos != this.textArea.getText().length()) {
+            this.textArea.setCaretPosition(this.textArea.getText().length());
+            this.replacePrevious(from, to);
+        }
+    }
 }
