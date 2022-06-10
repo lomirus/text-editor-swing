@@ -109,4 +109,10 @@ public class TextArea extends JScrollPane {
             this.replacePrevious(from, to);
         }
     }
+
+    public void replaceAll(String from, String to) {
+        String text = this.textArea.getText();
+        String newText = text.replaceAll(from, to);
+        this.textArea.setText(newText);
+    }
 }
